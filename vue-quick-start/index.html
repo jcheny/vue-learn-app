@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>hello world</title>
-        <script src="./vue.js"></script>
-    </head>
-    <body>
-        <div id="app">{{content}}</div>
 
-        <script>
-            var app = new Vue({
-                el: '#app',
-                data: {
-                    content: 'hello world'
-                }
-            })
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+    <script src="./vue.js"></script>
+</head>
 
-            setTimeout(() => {
-                app.$data.content='bye world'
-            }, 2000);
-        </script>
+<body>
+    <div id="app">{{content}}</div>
 
-    </body>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                content: 'hello world'
+            }
+        })
+
+        setTimeout(() => {
+            app.$data.content = 'bye world'
+        }, 2000);
+    </script>
+
+</body>
+
 </html>
