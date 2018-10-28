@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue组件使用中的细节点</title>
+
+    <script src="./vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <tbody>
+                <tr is="row"></tr>
+                <tr is="row"></tr>
+            </tbody>
+        </table>
+
+        <select>
+            <option is="selectGroup"></option>
+            <option is="selectGroup"></option>
+            <option is="selectGroup"></option>
+        </select>
+
+        <div @click="handleClick">hello world</div>
+
+        <item @change="handleClickChange" ref="one"></item>
+        <item @change="handleClickChange" ref="two"></item>
+        <div>{{totle}}</div>
+    </div>
+
+    <script>
+
+        /**
+        子组件使用data应该是用一个函数的形式
+        **/
+        Vue.component('row', {
+            data: function () {
+                return {
+                    content: 'this is a row for data'
+                }
+            },
+            template: '<tr><td>{{content}}</td></tr>'
+        }
+        )
+        Vue.component('selectGroup', {
+            template: '<option>this is a select</option>'
+        })
+
+        Vue.component('item',{
+            template: '<div @click="numberAdd">{{number}}</div>',
+            data: function(){
+                return {
+                    number:0
+                }
+            },
+            methods:{
+                numberAdd: function(){
+                    this.number++,
+                    this.$emit('change')
+                }
+            }
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                totle: 0
+            },
+            methods: {
+                handleClick: function () {
+                    alert('hello')
+                },
+                handleClickChange: function(){
+                    this.totle=this.$refs.one.number+this.$refs.two.number
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

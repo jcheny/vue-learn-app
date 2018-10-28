@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue父子组件传值</title>
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <counter :count="1">0</counter>
+            <counter :count="2">0</counter>
+        </div>
+       
+        <script>
+
+            var counter = {
+                props: ['count'],
+                /* 复制父组件的值*/
+                data: function(){
+                    return{
+                        number:this.count
+                    }
+                },
+                template: '<div @click="handleClick">{{number}}</div>',
+                methods: {
+                    handleClick: function(){
+                        this.number++
+                    }
+                }
+            }
+
+            var vm = new Vue({
+              el: '#root',
+              components:{
+                  counter: counter
+              }
+            })
+        </script>
+    </body>
+</html>
