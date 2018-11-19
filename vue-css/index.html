@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>vue中的css动画</title>
+    <script src="./vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="./animate.css">
+</head>
+<body>
+    <div id="root">
+        <transition name="fade" 
+            enter-active-class="animated bounce"
+            leave-active-class="animated shake"
+        >
+            <div v-show="show">hello world</div>
+        </transition>
+        <button @click="handleClick">切换</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#root',
+            data: {
+                show:true
+            },
+            methods: {
+                handleClick: function(){
+                    this.show = !this.show
+                }
+            }
+        })
+    </script>
+</body>
+</html> 
