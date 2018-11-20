@@ -23,9 +23,8 @@ export default {
                 imgUrl: '//img1.qunarzz.com/vc/a5/e0/64/c6bd8680fb67247db15df6057b.jpg'
             },{
                 id: '0002',
-                imgUrl: '//img1.qunarzz.com/vc/a5/e0/64/c6bd8680fb67247db15df6057b.jpg'
-            }
-            ]
+                imgUrl: '//img1.qunarzz.com/vc/a4/29/dd/4a0734b77f675da2a8ca4a9879.jpg'
+            }]
         }
     }    
 }
